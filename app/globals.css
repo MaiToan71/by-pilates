@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Colors */
+    --primary-brown: #c4aa8e;
+    --warm-beige: #F5F1E8;
+    --soft-gray: #E8E4DC;
+    --off-white: #FAFAF8;
+    --text-primary: #2D3436;
+    --text-body: #4A5568;
+    --text-muted: #6B7280;
+  }
+
+  body {
+    @apply bg-[#FAFAF8] text-[#4A5568];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-[#2D3436];
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .content-narrow {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .btn-primary {
+    @apply bg-[#c4aa8e] text-white px-8 py-4 rounded-lg font-semibold
+           hover:bg-[#b39a7e] transition-all duration-200 
+           shadow-md hover:shadow-lg cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-[#c4aa8e] text-[#c4aa8e] px-8 py-4 
+           rounded-lg font-semibold hover:bg-[#c4aa8e] hover:text-white 
+           transition-all duration-200 cursor-pointer;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Smooth scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
