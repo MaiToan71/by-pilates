@@ -7,7 +7,17 @@ export const metadata = {
   description: 'Xem lịch tập Pilates và đặt chỗ trực tuyến. Lớp học hàng ngày từ 6h sáng đến 9h tối.',
 }
 
-const schedule = {
+interface Session {
+  time: string;
+  class: string;
+  level: string;
+  instructor: string;
+  spots: number;
+  booked: number;
+  full?: boolean;
+}
+
+const schedule: Record<string, Session[]> = {
   monday: [
     { time: '06:00 - 07:00', class: 'Foundation Mat', level: 'Beginner', instructor: 'HLV Minh', spots: 8, booked: 5 },
     { time: '08:00 - 09:00', class: 'Core Strength', level: 'Intermediate', instructor: 'HLV Lan', spots: 6, booked: 6, full: true },
@@ -145,7 +155,7 @@ export default function SchedulePage() {
                       <div 
                         key={index}
                         className={`bg-white rounded-xl p-6 shadow-sm border-2 transition-all duration-200 ${
-                          session.full 
+                          session.full
                             ? 'border-gray-200 opacity-60' 
                             : 'border-[#E8E4DC] hover:border-[#c4aa8e] hover:shadow-md cursor-pointer'
                         }`}
