@@ -231,7 +231,7 @@ export default function SchedulePage() {
                     <li>• Hủy trước 12 giờ: Miễn phí</li>
                     <li>• Hủy trong 12 giờ: Mất 1 buổi</li>
                     <li>• No-show: Mất 1 buổi</li>
-                    <li>• Đến muộn >15 phút: Không vào lớp</li>
+                    <li>• Đến muộn {'>'} 15 phút: Không vào lớp</li>
                   </ul>
                 </div>
 
